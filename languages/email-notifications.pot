@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Email Notifications 0.1.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/email-notifications\n"
-"POT-Creation-Date: 2020-08-24 23:31:59+00:00\n"
+"POT-Creation-Date: 2020-08-25 14:06:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,23 +37,26 @@ msgstr ""
 msgid "When a user is added"
 msgstr ""
 
-#: includes/options.php:149 includes/options.php:177
+#: includes/options.php:101
+msgid "User resets password"
+msgstr ""
+
+#: includes/options.php:154 includes/options.php:183
+msgid "[%s] Password Reset"
+msgstr ""
+
+#: includes/options.php:157 includes/options.php:186 post-types/emailog.php:323
+#: post-types/emailog.php:403
 msgid "Subject"
 msgstr ""
 
-#: includes/options.php:154
+#: includes/options.php:162 includes/options.php:191
 msgid ""
 "If you use <code>%s</code> is gets replaced by the <i>Site title</i> set in "
 "<a href=options-general.php>general options</a>."
 msgstr ""
 
-#: includes/options.php:179
-msgid ""
-"If you use <code>%s</code> is gets replaced by the <i>Site title</i> set in "
-"<a href=>general options</a>."
-msgstr ""
-
-#: includes/options.php:210
+#: includes/options.php:224
 msgid ""
 "The following settings are used to send automatic emails during common "
 "WordPress tasks such as user activation or password reset. You can use "
@@ -61,12 +64,34 @@ msgid ""
 "values. The list of available shortcodes are:"
 msgstr ""
 
-#: includes/options.php:229
+#: includes/options.php:243
 msgid "Username: %s"
 msgstr ""
 
-#: includes/options.php:230
+#: includes/options.php:244
 msgid "To set your password, visit the following address:"
+msgstr ""
+
+#: includes/options.php:259
+msgid "Someone has requested a password reset for the following account:"
+msgstr ""
+
+#: includes/options.php:261
+#. translators: %s: Site name.
+msgid "Site Name: %site_title%"
+msgstr ""
+
+#: includes/options.php:263
+#. translators: %s: User login.
+msgid "Username: %user_login%"
+msgstr ""
+
+#: includes/options.php:264
+msgid "If this was a mistake, just ignore this email and nothing will happen."
+msgstr ""
+
+#: includes/options.php:265
+msgid "To reset your password, visit the following address:"
 msgstr ""
 
 #: post-types/emailog.php:12
@@ -118,60 +143,72 @@ msgid "No Email Logs found in trash"
 msgstr ""
 
 #: post-types/emailog.php:61
+msgid "Queued <span class=count>(%s)</span>"
+msgid_plural "Queued <span class=count>(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: post-types/emailog.php:76
+msgid "Failed <span class=count>(%s)</span>"
+msgid_plural "Failed <span class=count>(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: post-types/emailog.php:91
 msgid "Sent <span class=count>(%s)</span>"
 msgid_plural "Sent <span class=count>(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: post-types/emailog.php:73
+#: post-types/emailog.php:106
 msgid "Delivered <span class=count>(%s)</span>"
 msgid_plural "Delivered <span class=count>(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: post-types/emailog.php:85
+#: post-types/emailog.php:121
 msgid "Bounced <span class=count>(%s)</span>"
 msgid_plural "Bounced <span class=count>(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: post-types/emailog.php:104
+#: post-types/emailog.php:143
 #. translators: %s: post permalink
 msgid "Email Log updated. <a target=\"_blank\" href=\"%s\">View Email Log</a>"
 msgstr ""
 
-#: post-types/emailog.php:105
+#: post-types/emailog.php:144
 msgid "Custom field updated."
 msgstr ""
 
-#: post-types/emailog.php:106
+#: post-types/emailog.php:145
 msgid "Custom field deleted."
 msgstr ""
 
-#: post-types/emailog.php:107
+#: post-types/emailog.php:146
 msgid "Email Log updated."
 msgstr ""
 
-#: post-types/emailog.php:109
+#: post-types/emailog.php:148
 #. translators: %s: date and time of the revision
 msgid "Email Log restored to revision from %s"
 msgstr ""
 
-#: post-types/emailog.php:111
+#: post-types/emailog.php:150
 #. translators: %s: post permalink
 msgid "Email Log published. <a href=\"%s\">View Email Log</a>"
 msgstr ""
 
-#: post-types/emailog.php:112
+#: post-types/emailog.php:151
 msgid "Email Log saved."
 msgstr ""
 
-#: post-types/emailog.php:114
+#: post-types/emailog.php:153
 #. translators: %s: post permalink
 msgid "Email Log submitted. <a target=\"_blank\" href=\"%s\">Preview Email Log</a>"
 msgstr ""
 
-#: post-types/emailog.php:116
+#: post-types/emailog.php:155
 #. translators: 1: Publish box date format, see https:secure.php.net/date 2:
 #. Post permalink
 msgid ""
@@ -179,23 +216,61 @@ msgid ""
 "href=\"%2$s\">Preview Email Log</a>"
 msgstr ""
 
-#: post-types/emailog.php:117
+#: post-types/emailog.php:156
 msgid "M j, Y @ G:i"
 msgstr ""
 
-#: post-types/emailog.php:119
+#: post-types/emailog.php:158
 #. translators: %s: post permalink
 msgid ""
 "Email Log draft updated. <a target=\"_blank\" href=\"%s\">Preview Email "
 "Log</a>"
 msgstr ""
 
-#: post-types/emailog.php:136
-msgid "View email log"
+#: post-types/emailog.php:177
+msgid "View details"
 msgstr ""
 
-#: post-types/emailog.php:137
+#: post-types/emailog.php:178
 msgid "View"
+msgstr ""
+
+#: post-types/emailog.php:214
+msgid "Resend emails"
+msgstr ""
+
+#: post-types/emailog.php:279
+msgid "Resent %s email."
+msgid_plural "Resent %s emails."
+msgstr[0] ""
+msgstr[1] ""
+
+#: post-types/emailog.php:321 post-types/emailog.php:404
+msgid "Status"
+msgstr ""
+
+#: post-types/emailog.php:322 post-types/emailog.php:402
+msgid "To"
+msgstr ""
+
+#: post-types/emailog.php:324
+msgid "Body"
+msgstr ""
+
+#: post-types/emailog.php:325
+msgid "Message ID"
+msgstr ""
+
+#: post-types/emailog.php:335
+msgid "Attachments"
+msgstr ""
+
+#: post-types/emailog.php:345
+msgid "Headers"
+msgstr ""
+
+#: post-types/emailog.php:349
+msgid "Error"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
@@ -214,32 +289,32 @@ msgstr ""
 msgid "https://moveyourdigital.com"
 msgstr ""
 
-#: includes/options.php:199
+#: includes/options.php:213
 msgctxt "%site_url%"
 msgid "%s shows site Url."
 msgstr ""
 
-#: includes/options.php:200
+#: includes/options.php:214
 msgctxt "%site_title%"
 msgid "%s prints the Site Title."
 msgstr ""
 
-#: includes/options.php:201
+#: includes/options.php:215
 msgctxt "%user_login%"
 msgid "%s displays user login information."
 msgstr ""
 
-#: includes/options.php:202
+#: includes/options.php:216
 msgctxt "%login_url%"
 msgid "%s shows the login page link."
 msgstr ""
 
-#: includes/options.php:203
+#: includes/options.php:217
 msgctxt "%user_email%"
 msgid "%s the registered user email address."
 msgstr ""
 
-#: includes/options.php:204
+#: includes/options.php:218
 msgctxt "%user_activation_link%"
 msgid "%s the activation link which will be rendered as a link tag."
 msgstr ""
@@ -261,15 +336,25 @@ msgstr ""
 
 #: post-types/emailog.php:53
 msgctxt "post"
+msgid "Queued"
+msgstr ""
+
+#: post-types/emailog.php:68
+msgctxt "post"
+msgid "Failed"
+msgstr ""
+
+#: post-types/emailog.php:83
+msgctxt "post"
 msgid "Sent"
 msgstr ""
 
-#: post-types/emailog.php:65
+#: post-types/emailog.php:98
 msgctxt "post"
 msgid "Delivered"
 msgstr ""
 
-#: post-types/emailog.php:77
+#: post-types/emailog.php:113
 msgctxt "post"
 msgid "Bounced"
 msgstr ""

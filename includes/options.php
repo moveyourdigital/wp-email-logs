@@ -151,7 +151,7 @@ class AdminOptions {
 	 * @since 0.1.0
 	 */
 	public function when_a_user_is_added_callback() {
-		$default_text = apply_filters( 'default_user_registration_email_subject', __( '[%s] Password Reset' ) );
+		$default_text = apply_filters( 'default_user_registration_email_subject', __( '[%s] Password Reset', 'email-notifications' ) );
 ?>
 <p>
 	<input name="when_a_user_is_added_subject" type="text" id="when-a-user-is-added-subject" placeholder="<?php _e( 'Subject', 'email-notifications' ) ?>" class="regular-text" value="<?php echo esc_attr(
@@ -180,7 +180,7 @@ class AdminOptions {
 	 * @since 0.1.0
 	 */
 	public function when_password_reset_callback() {
-		$default_text = apply_filters( 'default_user_password_reset_subject', __ ( '[%s] Password Reset' ) );
+		$default_text = apply_filters( 'default_user_password_reset_subject', __ ( '[%s] Password Reset', 'email-notifications' ) );
 ?>
 <p>
 	<input name="when_password_reset_subject" type="text" id="when-password-reset-subject" placeholder="<?php _e( 'Subject', 'email-notifications' ) ?>" class="regular-text" value="<?php echo esc_attr(
@@ -256,13 +256,13 @@ class AdminOptions {
 	 */
 	public function default_user_password_reset_email() {
 
-		$message = __( 'Someone has requested a password reset for the following account:' ) . "\r\n\r\n";
+		$message = __( 'Someone has requested a password reset for the following account:', 'email-notifications' ) . "\r\n\r\n";
 		/* translators: %s: Site name. */
-		$message .= __( 'Site Name: %site_title%' ) . "\r\n\r\n";
+		$message .= __( 'Site Name: %site_title%', 'email-notifications' ) . "\r\n\r\n";
 		/* translators: %s: User login. */
-		$message .= __( 'Username: %user_login%' ) . "\r\n\r\n";
-		$message .= __( 'If this was a mistake, just ignore this email and nothing will happen.' ) . "\r\n\r\n";
-		$message .= __( 'To reset your password, visit the following address:' ) . "\r\n\r\n";
+		$message .= __( 'Username: %user_login%', 'email-notifications' ) . "\r\n\r\n";
+		$message .= __( 'If this was a mistake, just ignore this email and nothing will happen.', 'email-notifications' ) . "\r\n\r\n";
+		$message .= __( 'To reset your password, visit the following address:', 'email-notifications' ) . "\r\n\r\n";
 		$message .= "%user_activation_link%" . "\r\n";
 
 		return $message;
