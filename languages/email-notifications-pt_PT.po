@@ -1,0 +1,283 @@
+# Copyright (C) 2020 Move Your Digital, Inc.
+# This file is distributed under the same license as the Email Notifications package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Email Notifications 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/email-"
+"notifications\n"
+"POT-Creation-Date: 2020-08-24 23:31:59+00:00\n"
+"PO-Revision-Date: 2020-08-25 00:36+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3.1\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#. Plugin Name of the plugin/theme
+msgid "Email Notifications"
+msgstr "Notificações por email"
+
+#: includes/options.php:86
+msgid "User notifications"
+msgstr "Notificações dos utilizadores"
+
+#: includes/options.php:93
+msgid "When a user is added"
+msgstr "Quando um utilizador é adicionado"
+
+#: includes/options.php:149 includes/options.php:177
+msgid "Subject"
+msgstr "Assunto"
+
+#: includes/options.php:154
+msgid ""
+"If you use <code>%s</code> is gets replaced by the <i>Site title</i> set in "
+"<a href=options-general.php>general options</a>."
+msgstr ""
+"Pode user <code>%s</code> que será substituído pelo <i>Título do site</i> "
+"definido nas <a href=options-general.php>opções gerais</a>."
+
+#: includes/options.php:179
+msgid ""
+"If you use <code>%s</code> is gets replaced by the <i>Site title</i> set in "
+"<a href=>general options</a>."
+msgstr ""
+"Pode user <code>%s</code> que será substituído pelo <i>Título do site</i> "
+"definido nas <a href=>opções gerais</a>."
+
+#: includes/options.php:210
+msgid ""
+"The following settings are used to send automatic emails during common "
+"WordPress tasks such as user activation or password reset. You can use "
+"shortcodes in your email body content which will be replaced by actual "
+"values. The list of available shortcodes are:"
+msgstr ""
+"As definições seguintes são usadas para envio de emails automáticos durante "
+"tarefas do WordPress tais como a activação de utilizador. Poderá usar "
+"variáveis no corpo da mensagem que serão substituídos pelos valores que "
+"representam na altura de envio. A lista das variáveis disponíveis é a "
+"seguinte:"
+
+#: includes/options.php:229
+msgid "Username: %s"
+msgstr "Utilizador: %s"
+
+#: includes/options.php:230
+msgid "To set your password, visit the following address:"
+msgstr "Para definir a sua senha, visite o seguinte endereço:"
+
+#: post-types/emailog.php:12
+msgid "Email Logs"
+msgstr "Registos de Envios de Email"
+
+#: post-types/emailog.php:13
+msgid "Email Log Attributes"
+msgstr "Atributos do registo de envio de emails"
+
+#: post-types/emailog.php:14
+msgid "Filter Email Logs list"
+msgstr "Filtro da lista de registo de envio de emails"
+
+#: post-types/emailog.php:15
+msgid "Email Logs list navigation"
+msgstr "Navegação do registo de envio de emails"
+
+#: post-types/emailog.php:16
+msgid "Email Logs list"
+msgstr "Listagem de registo de envio de emails"
+
+#: post-types/emailog.php:17
+msgid "New Email Log"
+msgstr "Novo registo de envio de emails"
+
+#: post-types/emailog.php:18
+msgid "Edit Email Log"
+msgstr "Editar registo de envio de emails"
+
+#: post-types/emailog.php:19
+msgid "View Email Log"
+msgstr "Ver registo de envio de emails"
+
+#: post-types/emailog.php:20
+msgid "View Email Logs"
+msgstr "Ver registos de envio de emails"
+
+#: post-types/emailog.php:21
+msgid "Search Email Logs"
+msgstr "Procurar no registo de envio de emails"
+
+#: post-types/emailog.php:22
+msgid "No Email Logs found"
+msgstr "Nenhum registo de envio de emails encontrado"
+
+#: post-types/emailog.php:23
+msgid "No Email Logs found in trash"
+msgstr "Nenhum registo de envio de emails encontrado no lixo"
+
+#: post-types/emailog.php:61
+msgid "Sent <span class=count>(%s)</span>"
+msgid_plural "Sent <span class=count>(%s)</span>"
+msgstr[0] "Enviado <span class=count>(%s)</span>"
+msgstr[1] "Enviado <span class=count>(%s)</span>"
+
+#: post-types/emailog.php:73
+msgid "Delivered <span class=count>(%s)</span>"
+msgid_plural "Delivered <span class=count>(%s)</span>"
+msgstr[0] "Entregue <span class=count>(%s)</span>"
+msgstr[1] "Entregue <span class=count>(%s)</span>"
+
+#: post-types/emailog.php:85
+msgid "Bounced <span class=count>(%s)</span>"
+msgid_plural "Bounced <span class=count>(%s)</span>"
+msgstr[0] "Enviado <span class=count>(%s)</span>"
+msgstr[1] "Enviado <span class=count>(%s)</span>"
+
+#. translators: %s: post permalink
+#: post-types/emailog.php:104
+msgid "Email Log updated. <a target=\"_blank\" href=\"%s\">View Email Log</a>"
+msgstr ""
+
+#: post-types/emailog.php:105
+msgid "Custom field updated."
+msgstr ""
+
+#: post-types/emailog.php:106
+msgid "Custom field deleted."
+msgstr ""
+
+#: post-types/emailog.php:107
+msgid "Email Log updated."
+msgstr ""
+
+#. translators: %s: date and time of the revision
+#: post-types/emailog.php:109
+msgid "Email Log restored to revision from %s"
+msgstr ""
+
+#. translators: %s: post permalink
+#: post-types/emailog.php:111
+msgid "Email Log published. <a href=\"%s\">View Email Log</a>"
+msgstr ""
+
+#: post-types/emailog.php:112
+msgid "Email Log saved."
+msgstr ""
+
+#. translators: %s: post permalink
+#: post-types/emailog.php:114
+msgid ""
+"Email Log submitted. <a target=\"_blank\" href=\"%s\">Preview Email Log</a>"
+msgstr ""
+
+#. translators: 1: Publish box date format, see https:secure.php.net/date 2:
+#. Post permalink
+#: post-types/emailog.php:116
+msgid ""
+"Email Log scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href="
+"\"%2$s\">Preview Email Log</a>"
+msgstr ""
+
+#: post-types/emailog.php:117
+msgid "M j, Y @ G:i"
+msgstr ""
+
+#. translators: %s: post permalink
+#: post-types/emailog.php:119
+msgid ""
+"Email Log draft updated. <a target=\"_blank\" href=\"%s\">Preview Email Log</"
+"a>"
+msgstr ""
+
+#: post-types/emailog.php:136
+msgid "View email log"
+msgstr "Ver registo de email"
+
+#: post-types/emailog.php:137
+msgid "View"
+msgstr "Ver"
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/moveyourdigital/email-notifications"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Replace default WordPress email notifications easily"
+msgstr "Personalização fácil dos emails de notificação do WordPress"
+
+#. Author of the plugin/theme
+msgid "Move Your Digital, Inc."
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://moveyourdigital.com"
+msgstr ""
+
+#: includes/options.php:199
+msgctxt "%site_url%"
+msgid "%s shows site Url."
+msgstr "%s mostra o Url do site."
+
+#: includes/options.php:200
+msgctxt "%site_title%"
+msgid "%s prints the Site Title."
+msgstr "%s mostra o Título do site."
+
+#: includes/options.php:201
+msgctxt "%user_login%"
+msgid "%s displays user login information."
+msgstr "%s mostra a informação de login do utilizador."
+
+#: includes/options.php:202
+msgctxt "%login_url%"
+msgid "%s shows the login page link."
+msgstr "%s contém o link da página de login."
+
+#: includes/options.php:203
+msgctxt "%user_email%"
+msgid "%s the registered user email address."
+msgstr "%s o email do utilizador."
+
+#: includes/options.php:204
+msgctxt "%user_activation_link%"
+msgid "%s the activation link which will be rendered as a link tag."
+msgstr "%s o link de activação do utilizador renderizado numa tag link."
+
+#: post-types/emailog.php:10
+msgctxt "name"
+msgid "Email Logs"
+msgstr "Registos de Envios de Email"
+
+#: post-types/emailog.php:11
+msgctxt "singular_name"
+msgid "Email Log"
+msgstr "Registos de Envios de Email"
+
+#: post-types/emailog.php:24
+msgctxt "menu_item"
+msgid "Email Logs"
+msgstr "Registos de Envios de Email"
+
+#: post-types/emailog.php:53
+msgctxt "post"
+msgid "Sent"
+msgstr "Enviado"
+
+#: post-types/emailog.php:65
+msgctxt "post"
+msgid "Delivered"
+msgstr "Entregue"
+
+#: post-types/emailog.php:77
+msgctxt "post"
+msgid "Bounced"
+msgstr "Retornado"
