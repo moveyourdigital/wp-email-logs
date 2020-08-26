@@ -15,7 +15,7 @@ add_action( 'init', function () {
 			'items_list_navigation' => __( 'Email Logs list navigation', 'email-notifications' ),
 			'items_list'            => __( 'Email Logs list', 'email-notifications' ),
 			'new_item'              => __( 'New Email Log', 'email-notifications' ),
-			'edit_item'             => __( 'Edit Email Log', 'email-notifications' ),
+			'edit_item'             => __( 'Email Log', 'email-notifications' ),
 			'view_item'             => __( 'View Email Log', 'email-notifications' ),
 			'view_items'            => __( 'View Email Logs', 'email-notifications' ),
 			'search_items'          => __( 'Search Email Logs', 'email-notifications' ),

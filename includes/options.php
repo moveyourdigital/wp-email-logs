@@ -104,6 +104,22 @@ class AdminOptions {
 			'email_notifications_setting_section' // section
 		);
 
+		add_settings_field(
+			'when_password_changes', // id
+			__( 'Notify user that password was changed', 'email-notifications' ), // title
+			array( $this, 'when_password_changes_callback' ), // callback
+			'email-notifications-admin', // page
+			'email_notifications_setting_section' // section
+		);
+
+		add_settings_field(
+			'when_email_changes', // id
+			__( 'Notify user that email was changed', 'email-notifications' ), // title
+			array( $this, 'when_email_changes_callback' ), // callback
+			'email-notifications-admin', // page
+			'email_notifications_setting_section' // section
+		);
+
 		do_action( 'email_notifications_after_user_options' );
 	}
 
@@ -131,6 +147,22 @@ class AdminOptions {
 			$sanitary_values['when_password_reset'] = wpautop( $_POST['when_password_reset'] );
 		}
 
+		if ( isset( $_POST['when_password_changes_subject'] ) ) {
+			$sanitary_values['when_password_changes_subject'] = $_POST['when_password_changes_subject'];
+		}
+
+		if ( isset( $_POST['when_password_changes'] ) ) {
+			$sanitary_values['when_password_changes'] = wpautop( $_POST['when_password_changes'] );
+		}
+
+		if ( isset( $_POST['when_email_changes_subject'] ) ) {
+			$sanitary_values['when_email_changes_subject'] = $_POST['when_email_changes_subject'];
+		}
+
+		if ( isset( $_POST['when_email_changes'] ) ) {
+			$sanitary_values['when_email_changes'] = wpautop( $_POST['when_email_changes'] );
+		}
+
 		return apply_filters( 'save_email_notifications_options', $sanitary_values );
 	}
 
@@ -148,10 +180,11 @@ class AdminOptions {
 	 * @uses wp_new_user_notification_email
 	 * @uses default_user_registration_email
 	 * @uses default_user_registration_email_subject
+	 *
 	 * @since 0.1.0
 	 */
 	public function when_a_user_is_added_callback() {
-		$default_text = apply_filters( 'default_user_registration_email_subject', __( '[%s] Password Reset', 'email-notifications' ) );
+		$default_text = apply_filters( 'default_user_registration_email_subject', __( '[%s] Password Reset', 'default' ) );
 ?>
 <p>
 	<input name="when_a_user_is_added_subject" type="text" id="when-a-user-is-added-subject" placeholder="<?php _e( 'Subject', 'email-notifications' ) ?>" class="regular-text" value="<?php echo esc_attr(
@@ -177,10 +210,12 @@ class AdminOptions {
 	/**
 	 *
 	 * @uses default_user_password_reset_subject
+	 * @uses default_user_password_reset_email
+	 *
 	 * @since 0.1.0
 	 */
 	public function when_password_reset_callback() {
-		$default_text = apply_filters( 'default_user_password_reset_subject', __ ( '[%s] Password Reset', 'email-notifications' ) );
+		$default_text = apply_filters( 'default_user_password_reset_subject', __ ( '[%s] Password Reset', 'default' ) );
 ?>
 <p>
 	<input name="when_password_reset_subject" type="text" id="when-password-reset-subject" placeholder="<?php _e( 'Subject', 'email-notifications' ) ?>" class="regular-text" value="<?php echo esc_attr(
@@ -188,7 +223,7 @@ class AdminOptions {
 		? $this->options['when_password_reset_subject']
 		: $default_text ) ?>">
 </p>
-<p class="description"><?php sprintf( __( 'If you use <code>%s</code> is gets replaced by the <i>Site title</i> set in <a href=options-general.php>general options</a>.', 'email-notifications' ), 'options-general.php' ) ?></p>
+<p class="description"><?php _e( 'If you use <code>%s</code> is gets replaced by the <i>Site title</i> set in <a href=options-general.php>general options</a>.', 'email-notifications' ) ?></p>
 <br />
 <p>
 <?php
@@ -197,6 +232,68 @@ class AdminOptions {
 		wp_editor( isset( $this->options['when_password_reset'] )
 			? stripslashes( html_entity_decode( $this->options['when_password_reset'] ) )
 			: $default_text, 'when_password_reset');
+?>
+</p>
+<?php
+	}
+
+	/**
+	 *
+	 * @uses password_change_email
+	 * @uses default_password_change_subject
+	 * @uses default_password_change_email
+	 *
+	 * @since 0.1.0
+	 */
+	public function when_password_changes_callback() {
+		$default_text = apply_filters( 'default_password_change_subject', __ ( '[%s] Password Changed', 'default' ) );
+?>
+<p>
+	<input name="when_password_changes_subject" type="text" id="when-password-reset-subject" placeholder="<?php _e( 'Subject', 'email-notifications' ) ?>" class="regular-text" value="<?php echo esc_attr(
+		isset( $this->options['when_password_changes_subject'] )
+		? $this->options['when_password_changes_subject']
+		: $default_text ) ?>">
+</p>
+<p class="description"><?php _e( 'If you use <code>%s</code> is gets replaced by the <i>Site title</i> set in <a href=options-general.php>general options</a>.', 'email-notifications' ) ?></p>
+<br />
+<p>
+<?php
+		$default_text = apply_filters( 'default_password_change_email', $this->default_password_change_email() );
+
+		wp_editor( isset( $this->options['when_password_changes'] )
+			? stripslashes( html_entity_decode( $this->options['when_password_changes'] ) )
+			: $default_text, 'when_password_changes');
+?>
+</p>
+<?php
+	}
+
+	/**
+	 *
+	 * @uses email_change_email
+	 * @uses default_user_password_reset_subject
+	 * @uses default_email_change_email
+	 *
+	 * @since 0.1.0
+	 */
+	public function when_email_changes_callback() {
+		$default_text = apply_filters( 'default_email_change_subject', __ ( '[%s] Email Changed', 'default' ) );
+?>
+<p>
+	<input name="when_email_changes_subject" type="text" id="when-password-reset-subject" placeholder="<?php _e( 'Subject', 'email-notifications' ) ?>" class="regular-text" value="<?php echo esc_attr(
+		isset( $this->options['when_email_changes_subject'] )
+		? $this->options['when_email_changes_subject']
+		: $default_text ) ?>">
+</p>
+<p class="description"><?php _e( 'If you use <code>%s</code> is gets replaced by the <i>Site title</i> set in <a href=options-general.php>general options</a>.', 'email-notifications' ) ?></p>
+<br />
+<p>
+<?php
+		$default_text = apply_filters( 'default_email_change_email', $this->default_email_change_email() );
+
+		wp_editor( isset( $this->options['when_email_changes'] )
+			? stripslashes( html_entity_decode( $this->options['when_email_changes'] ) )
+			: $default_text, 'when_email_changes');
 ?>
 </p>
 <?php
@@ -213,6 +310,7 @@ class AdminOptions {
 			'site_url' => sprintf( _x( '%s shows site Url.', '%site_url%', 'email-notifications' ), '<code>%site_url%</code>' ),
 			'site_title' => sprintf( _x( '%s prints the Site Title.', '%site_title%', 'email-notifications' ), '<code>%site_title%</code>' ),
 			'user_login' => sprintf( _x( '%s displays user login information.', '%user_login%', 'email-notifications' ), '<code>%user_login%</code>' ),
+			'user_display_name' => sprintf( _x( '%s displays user name in human readable format.', '%user_login%', 'email-notifications' ), '<code>%user_display_name%</code>' ),
 			'login_url' => sprintf( _x( '%s shows the login page link.', '%login_url%', 'email-notifications' ), '<code>%login_url%</code>' ),
 			'user_email' => sprintf( _x( '%s the registered user email address.', '%user_email%', 'email-notifications' ), '<code>%user_email%</code>' ),
 			'user_activation_link' => sprintf( _x( '%s the activation link which will be rendered as a link tag.', '%user_activation_link%', 'email-notifications' ), '<code>%user_activation_link%</code>' ),
@@ -240,8 +338,8 @@ class AdminOptions {
 	 * @since 0.1.0
 	 */
 	public function default_user_registration_email() {
-		$message  = sprintf( __( 'Username: %s', 'email-notifications' ), '%user_login%' ) . "\r\n\r\n";
-		$message .= __( 'To set your password, visit the following address:', 'email-notifications' ) . "\r\n\r\n";
+		$message  = sprintf( __( 'Username: %s', 'default' ), '%user_login%' ) . "\r\n\r\n";
+		$message .= __( 'To set your password, visit the following address:', 'default' ) . "\r\n\r\n";
 		$message .= '%user_activation_link%' . "\r\n\r\n";
 		$message .= '%login_url%' . "\r\n";
 
@@ -256,16 +354,87 @@ class AdminOptions {
 	 */
 	public function default_user_password_reset_email() {
 
-		$message = __( 'Someone has requested a password reset for the following account:', 'email-notifications' ) . "\r\n\r\n";
+		$message = __( 'Someone has requested a password reset for the following account:', 'default' ) . "\r\n\r\n";
 		/* translators: %s: Site name. */
-		$message .= __( 'Site Name: %site_title%', 'email-notifications' ) . "\r\n\r\n";
+		$message .= __( 'Site Name: %site_title%', 'default' ) . "\r\n\r\n";
 		/* translators: %s: User login. */
-		$message .= __( 'Username: %user_login%', 'email-notifications' ) . "\r\n\r\n";
-		$message .= __( 'If this was a mistake, just ignore this email and nothing will happen.', 'email-notifications' ) . "\r\n\r\n";
-		$message .= __( 'To reset your password, visit the following address:', 'email-notifications' ) . "\r\n\r\n";
+		$message .= __( 'Username: %user_login%', 'default' ) . "\r\n\r\n";
+		$message .= __( 'If this was a mistake, just ignore this email and nothing will happen.', 'default' ) . "\r\n\r\n";
+		$message .= __( 'To reset your password, visit the following address:', 'default' ) . "\r\n\r\n";
 		$message .= "%user_activation_link%" . "\r\n";
 
 		return $message;
+	}
+
+	/**
+	 * Copied from wp-login.php
+	 * Must always be in sync.
+	 *
+	 * @since 0.1.0
+	 */
+	public function default_password_change_email() {
+
+		$default = __( 'Hi ###USERNAME###,
+
+This notice confirms that your password was changed on ###SITENAME###.
+
+If you did not change your password, please contact the Site Administrator at
+###ADMIN_EMAIL###
+
+This email has been sent to ###EMAIL###
+
+Regards,
+All at ###SITENAME###
+###SITEURL###' );
+
+		return $this->replace_replacers( $default );
+
+	}
+
+	/**
+	 * Copied from wp-login.php
+	 * Must always be in sync.
+	 *
+	 * @since 0.1.0
+	 */
+	public function default_email_change_email() {
+
+		$default = __( 'Hi ###USERNAME###,
+
+This notice confirms that your email address on ###SITENAME### was changed to ###NEW_EMAIL###.
+
+If you did not change your email, please contact the Site Administrator at
+###ADMIN_EMAIL###
+
+This email has been sent to ###EMAIL###
+
+Regards,
+All at ###SITENAME###
+###SITEURL###' );
+
+		return $this->replace_replacers( $default );
+
+	}
+
+	/**
+	 *
+	 */
+	private function replace_replacers( $default ) {
+		return str_replace( [
+			'###USERNAME###',
+			'###ADMIN_EMAIL###',
+			'###EMAIL###',
+			'###NEW_EMAIL###',
+			'###SITENAME###',
+			'###SITEURL###',
+		], [
+			'%user_login%',
+			'%admin_email%',
+			'%user_email%',
+			'%user_email%',
+			'%site_name%',
+			'%site_url%',
+		], $default );
 	}
 
 }

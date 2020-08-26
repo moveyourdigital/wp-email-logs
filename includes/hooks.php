@@ -4,12 +4,17 @@
  *
  * @since 0.1.0
  */
-function email_notifications_variables_replace( $message, $user, $blogname, $key ) {
+function email_notifications_variables_replace( $message, $user, $blogname, $key = '' ) {
+
+	if ( is_array( $user ) ) {
+		$user = get_user_by( 'ID', $user['ID'] );
+	}
 
 	$replacers = apply_filters( 'email_notifications_user_emails_variables_callbacks', [
 		'site_url' => site_url('/'),
 		'site_title' => $blogname,
 		'user_login' => $user->user_login,
+		'user_display_name' => $user->display_name,
 		'login_url' => wp_login_url(),
 		'user_email' => $user->user_email,
 		'user_activation_link' => is_wp_error( $key ) ? '' : network_site_url( "wp-login.php?action=rp&key=$key&login=" . rawurlencode( $user->user_login ), 'login' ),
@@ -140,6 +145,56 @@ add_filter( 'retrieve_password_message', function ( $message, $key, $user_login,
 	return $message;
 
 }, 10, 4 );
+
+/**
+ * Filters the contents of the email sent when the user's password is changed.
+ *
+ * @since 4.3.0
+ *
+ * @param array $pass_change_email {
+ *            Used to build wp_mail().
+ *
+ *            @type string $to      The intended recipients. Add emails in a comma separated string.
+ *            @type string $subject The subject of the email.
+ *            @type string $message The content of the email.
+ *                The following strings have a special meaning and will get replaced dynamically:
+ *                - ###USERNAME###    The current user's username.
+ *                - ###ADMIN_EMAIL### The admin email in case this was unexpected.
+ *                - ###EMAIL###       The user's email address.
+ *                - ###SITENAME###    The name of the site.
+ *                - ###SITEURL###     The URL to the site.
+ *            @type string $headers Headers. Add headers in a newline (\r\n) separated string.
+ *        }
+ * @param array $user     The original user array.
+ * @param array $userdata The updated user array.
+ */
+add_filter( 'password_change_email', function ( $pass_change_email, $user, $userdata ) {
+
+	$options = get_option( 'email_notifications' );
+
+	if ( isset( $options['when_password_changes'] ) ) {
+		if ( is_multisite() ) {
+			$site_name = get_network()->site_name;
+		} else {
+			/*
+			 * The blogname option is escaped with esc_html on the way into the database
+			 * in sanitize_option we want to reverse this for the plain text arena of emails.
+			 */
+			$site_name = wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES );
+		}
+
+		$pass_change_email['subject'] = $options['when_password_changes_subject'];
+
+		$pass_change_email['message'] = email_notifications_variables_replace(
+			$options['when_password_changes'],
+			$userdata,
+			$site_name,
+		);
+	}
+
+	return $pass_change_email;
+
+}, 10, 3 );
 
 /**
  * Fires in head section for all admin pages.
