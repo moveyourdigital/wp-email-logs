@@ -173,7 +173,7 @@ add_filter('post_row_actions', function ( $actions, $post ) {
 
 	$new_actions = [];
 
-	$new_actions['view'] = '<a href="' . get_edit_post_link( $post ) . '" title="'
+	$new_actions['details'] = '<a href="' . get_edit_post_link( $post ) . '" title="'
 		. esc_attr( __( 'View details', 'email-notifications' ) )
 		. '">' . __( 'View', 'email-notifications' ) . '</a>';
 

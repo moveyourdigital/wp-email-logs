@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/email-"
 "notifications\n"
 "POT-Creation-Date: 2020-08-26 10:26:51+00:00\n"
-"PO-Revision-Date: 2020-08-26 11:28+0100\n"
+"PO-Revision-Date: 2020-08-31 17:33+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_PT\n"
@@ -142,9 +142,6 @@ msgid "New Email Log"
 msgstr "Novo registo de envio de emails"
 
 #: post-types/emailog.php:18
-#, fuzzy
-#| msgctxt "singular_name"
-#| msgid "Email Log"
 msgid "Email Log"
 msgstr "Registos de Envios de Email"
 
