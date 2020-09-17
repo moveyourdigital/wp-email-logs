@@ -138,7 +138,7 @@ add_filter( 'retrieve_password_message', function ( $message, $key, $user_login,
 			$options['when_password_reset'],
 			$user_data,
 			$site_name,
-			get_password_reset_key( $key )
+			$key,
 		);
 	}
 
