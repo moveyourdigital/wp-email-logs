@@ -1,0 +1,330 @@
+# Copyright (C) 2020 Move Your Digital, Inc.
+# This file is distributed under the same license as the Email Notifications package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Email Notifications 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-email-logs\n"
+"POT-Creation-Date: 2024-03-27T14:59:43+00:00\n"
+"PO-Revision-Date: 2024-03-27 15:06+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.3.2\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#. Plugin Name of the plugin
+#: inc/post-types/email-log.php:17
+msgid "Email Logs"
+msgstr "Registos de e-mails"
+
+#. Plugin URI of the plugin
+msgid "https://github.com/moveyourdigital/wp-email-logs"
+msgstr ""
+
+#. Description of the plugin
+msgid "Log all emails sent from WordPress"
+msgstr "Regista todos os e-mails enviados a partir do WordPress"
+
+#. Author of the plugin
+msgid "Move Your Digital, Inc."
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://moveyourdigital.com"
+msgstr ""
+
+#: inc/post-types/email-log.php:15
+msgctxt "name"
+msgid "Email Logs"
+msgstr "Registos de e-mails"
+
+#: inc/post-types/email-log.php:16
+msgctxt "singular_name"
+msgid "Email Log"
+msgstr "Registo de e-mail"
+
+#: inc/post-types/email-log.php:18
+msgid "Email Log Attributes"
+msgstr "Atributos do registo de e-mail"
+
+#: inc/post-types/email-log.php:19
+msgid "Filter Email Logs list"
+msgstr "Filtrar a lista de registos de e-mails"
+
+#: inc/post-types/email-log.php:20
+msgid "Email Logs list navigation"
+msgstr "Navegação da lista de registos de e-mails"
+
+#: inc/post-types/email-log.php:21
+msgid "Email Logs list"
+msgstr "Lista de registos de e-mails"
+
+#: inc/post-types/email-log.php:22
+msgid "New Email Log"
+msgstr "Novo registo de e-mail"
+
+#: inc/post-types/email-log.php:23
+msgid "Email Log"
+msgstr "Registo de e-mail"
+
+#: inc/post-types/email-log.php:24
+msgid "View Email Log"
+msgstr "Ver registo de e-mail"
+
+#: inc/post-types/email-log.php:25
+msgid "View Email Logs"
+msgstr "Ver registos de e-mails"
+
+#: inc/post-types/email-log.php:26
+msgid "Search Email Logs"
+msgstr "Procurar registos de e-mails"
+
+#: inc/post-types/email-log.php:27
+msgid "No Email Logs found"
+msgstr "Nenhum registo de e-mail encontrado"
+
+#: inc/post-types/email-log.php:28
+msgid "No Email Logs found in trash"
+msgstr "Nenhum registo de e-mail encontrado no lixo"
+
+#: inc/post-types/email-log.php:29
+msgctxt "menu_item"
+msgid "Email Logs"
+msgstr "Registos de e-mails"
+
+#: inc/post-types/email-log.php:60
+msgctxt "post"
+msgid "Queued"
+msgstr "Em processamento"
+
+#. translators: number of entries in queued state
+#: inc/post-types/email-log.php:62
+msgid "Queued <span class=count>(%s)</span>"
+msgid_plural "Queued <span class=count>(%s)</span>"
+msgstr[0] "Em processamento <span class=count>(%s)</span>"
+msgstr[1] "Em processamento <span class=count>(%s)</span>"
+
+#: inc/post-types/email-log.php:70
+msgctxt "post"
+msgid "Failed"
+msgstr "Falhado"
+
+#. translators: number of entries in failed state
+#: inc/post-types/email-log.php:72
+msgid "Failed <span class=count>(%s)</span>"
+msgid_plural "Failed <span class=count>(%s)</span>"
+msgstr[0] "Falhado <span class=count>(%s)</span>"
+msgstr[1] "Falhado <span class=count>(%s)</span>"
+
+#: inc/post-types/email-log.php:80
+msgctxt "post"
+msgid "Sent"
+msgstr "Enviado"
+
+#. translators: number of entries in sent state
+#: inc/post-types/email-log.php:82
+msgid "Sent <span class=count>(%s)</span>"
+msgid_plural "Sent <span class=count>(%s)</span>"
+msgstr[0] "Enviado <span class=count>(%s)</span>"
+msgstr[1] "Enviado <span class=count>(%s)</span>"
+
+#: inc/post-types/email-log.php:90
+msgctxt "post"
+msgid "Delivered"
+msgstr "Entregue"
+
+#. translators: number of entries in delivered state
+#: inc/post-types/email-log.php:92
+msgid "Delivered <span class=count>(%s)</span>"
+msgid_plural "Delivered <span class=count>(%s)</span>"
+msgstr[0] "Entregue <span class=count>(%s)</span>"
+msgstr[1] "Entregue <span class=count>(%s)</span>"
+
+#: inc/post-types/email-log.php:100
+msgctxt "post"
+msgid "Bounced"
+msgstr "Retornado"
+
+#. translators: number of entries in bounced state
+#: inc/post-types/email-log.php:102
+msgid "Bounced <span class=count>(%s)</span>"
+msgid_plural "Bounced <span class=count>(%s)</span>"
+msgstr[0] "Retornado <span class=count>(%s)</span>"
+msgstr[1] "Retornado <span class=count>(%s)</span>"
+
+#: inc/post-types/email-log.php:152
+msgid "View details"
+msgstr "Ver detalhes"
+
+#: inc/post-types/email-log.php:153
+msgid "View"
+msgstr "Ver"
+
+#: inc/post-types/email-log.php:199
+msgid "Resend emails"
+msgstr "Reenviar e-mail"
+
+#. translators: number of entries in bounced state
+#: inc/post-types/email-log.php:280
+msgid "Resent %s email."
+msgid_plural "Resent %s emails."
+msgstr[0] "Reenviado %s email."
+msgstr[1] "Reenviado %s emails."
+
+#: inc/post-types/email-log.php:334 inc/post-types/email-log.php:434
+msgid "Status"
+msgstr "Estado"
+
+#: inc/post-types/email-log.php:335
+msgid "To Address"
+msgstr "Endereço para"
+
+#: inc/post-types/email-log.php:336 inc/post-types/email-log.php:433
+msgid "Subject"
+msgstr "Assunto"
+
+#: inc/post-types/email-log.php:337
+msgid "Body"
+msgstr "Corpo"
+
+#: inc/post-types/email-log.php:338
+msgid "Message ID"
+msgstr "Identificador da mensagem"
+
+#: inc/post-types/email-log.php:348
+msgid "Attachments"
+msgstr "Anexos"
+
+#: inc/post-types/email-log.php:370
+msgid "Headers"
+msgstr "Cabeçalhos"
+
+#: inc/post-types/email-log.php:374
+msgid "Error"
+msgstr "Erro"
+
+#: inc/post-types/email-log.php:432
+msgid "To"
+msgstr "Para"
+
+#~ msgid "Email Notifications"
+#~ msgstr "Notificações por email"
+
+#~ msgid "User notifications"
+#~ msgstr "Notificações dos utilizadores"
+
+#~ msgid "When a user is added"
+#~ msgstr "Quando um utilizador é adicionado"
+
+#~ msgid "User resets password"
+#~ msgstr "Quando o utilizador recupera a palavra-passe"
+
+#~ msgid "Notify user that password was changed"
+#~ msgstr "Notificação ao utilizador de alteração de palavra-passe"
+
+#~ msgid "Notify user that email was changed"
+#~ msgstr "Notificação ao utilizador de alteração do email"
+
+#~ msgid "[%s] Password Reset"
+#~ msgstr "[%s] Recuperação da palavra-passe"
+
+#~ msgid ""
+#~ "If you use <code>%s</code> is gets replaced by the <i>Site title</i> set "
+#~ "in <a href=options-general.php>general options</a>."
+#~ msgstr ""
+#~ "Pode user <code>%s</code> que será substituído pelo <i>Título do site</i> "
+#~ "definido nas <a href=options-general.php>opções gerais</a>."
+
+#~ msgid "[%s] Password Changed"
+#~ msgstr "[%s] Recuperação da palavra-passe"
+
+#~ msgid "[%s] Email Changed"
+#~ msgstr "[%s] Alteração de email"
+
+#~ msgid ""
+#~ "The following settings are used to send automatic emails during common "
+#~ "WordPress tasks such as user activation or password reset. You can use "
+#~ "shortcodes in your email body content which will be replaced by actual "
+#~ "values. The list of available shortcodes are:"
+#~ msgstr ""
+#~ "As definições seguintes são usadas para envio de emails automáticos "
+#~ "durante tarefas do WordPress tais como a activação de utilizador. Poderá "
+#~ "usar variáveis no corpo da mensagem que serão substituídos pelos valores "
+#~ "que representam na altura de envio. A lista das variáveis disponíveis é a "
+#~ "seguinte:"
+
+#~ msgid "Username: %s"
+#~ msgstr "Utilizador: %s"
+
+#~ msgid "To set your password, visit the following address:"
+#~ msgstr "Para definir a sua senha, visite o seguinte endereço:"
+
+#~ msgid "Someone has requested a password reset for the following account:"
+#~ msgstr "Foi recebido um pedido de redefinição de senha desta conta:"
+
+#~ msgid "Site Name: %site_title%"
+#~ msgstr "Nome do Site: %site_title%"
+
+#~ msgid "Username: %user_login%"
+#~ msgstr "Utilizador: %user_login%"
+
+#~ msgid ""
+#~ "If this was a mistake, just ignore this email and nothing will happen."
+#~ msgstr "Se foi um erro ignore este email e nada acontecerá."
+
+#~ msgid "To reset your password, visit the following address:"
+#~ msgstr "Para redefinir a sua senha, visite este endereço:"
+
+#~ msgid "Replace default WordPress email notifications easily"
+#~ msgstr "Personalização fácil dos emails de notificação do WordPress"
+
+#~ msgctxt "%site_url%"
+#~ msgid "%s shows site Url."
+#~ msgstr "%s mostra o Url do site."
+
+#~ msgctxt "%site_title%"
+#~ msgid "%s prints the Site Title."
+#~ msgstr "%s mostra o Título do site."
+
+#~ msgctxt "%user_login%"
+#~ msgid "%s displays user login information."
+#~ msgstr "%s mostra a informação de login do utilizador."
+
+#, fuzzy
+#~| msgctxt "%user_login%"
+#~| msgid "%s displays user login information."
+#~ msgctxt "%user_login%"
+#~ msgid "%s displays user name in human readable format."
+#~ msgstr "%s mostra a informação de login do utilizador."
+
+#~ msgctxt "%login_url%"
+#~ msgid "%s shows the login page link."
+#~ msgstr "%s contém o link da página de login."
+
+#~ msgctxt "%user_email%"
+#~ msgid "%s the registered user email address."
+#~ msgstr "%s o email do utilizador."
+
+#~ msgctxt "%user_activation_link%"
+#~ msgid "%s the activation link which will be rendered as a link tag."
+#~ msgstr "%s o link de activação do utilizador renderizado numa tag link."
+
+#~ msgid "Edit Email Log"
+#~ msgstr "Editar registo de envio de emails"
+
+#~ msgid ""
+#~ "If you use <code>%s</code> is gets replaced by the <i>Site title</i> set "
+#~ "in <a href=>general options</a>."
+#~ msgstr ""
+#~ "Pode user <code>%s</code> que será substituído pelo <i>Título do site</i> "
+#~ "definido nas <a href=>opções gerais</a>."

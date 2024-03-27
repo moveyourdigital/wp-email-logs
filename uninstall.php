@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Fired when the plugin is uninstalled.
  *
@@ -22,7 +21,7 @@
  * @link       https://moveyourdigital.com
  * @since      1.0.0
  *
- * @package    Nezasa
+ * @package    Email_Logs
  */
 
 // If uninstall not called from WordPress, then exit.
@@ -30,4 +29,9 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
 
-// TODO: remove all email logs and options from the DB
+// remove all email logs and options from the DB!
+$logs = get_posts( array( 'post_type' => 'email_log' ) );
+
+foreach ( $logs as $log ) {
+	wp_delete_post( $log->ID, true );
+}

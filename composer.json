@@ -1,7 +1,7 @@
 {
-  "name": "moveyourdigital/wp-email-notifications",
-  "description": "Replace default WordPress email notifications easily",
-  "homepage": "https://github.com/moveyourdigital/wp-email-notifications",
+  "name": "moveyourdigital/wp-email-logs",
+  "description": "Log all emails sent from WordPress",
+  "homepage": "https://github.com/moveyourdigital/wp-email-logs",
   "keywords": [
     "wordpress"
   ],
@@ -14,8 +14,8 @@
     }
   ],
   "support": {
-    "issues": "https://github.com/moveyourdigital/wp-email-notifications/issues",
-    "source": "https://github.com/moveyourdigital/wp-email-notifications"
+    "issues": "https://github.com/moveyourdigital/wp-email-logs/issues",
+    "source": "https://github.com/moveyourdigital/wp-email-logs"
   },
   "type": "wordpress-plugin",
   "require": {

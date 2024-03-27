@@ -1,0 +1,212 @@
+# Copyright (C) 2024 Move Your Digital, Inc.
+# This file is distributed under the GPLv2.
+msgid ""
+msgstr ""
+"Project-Id-Version: Email Logs 0.3.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-email-logs\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-03-27T14:59:43+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: email-logs\n"
+
+#. Plugin Name of the plugin
+#: inc/post-types/email-log.php:17
+msgid "Email Logs"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://github.com/moveyourdigital/wp-email-logs"
+msgstr ""
+
+#. Description of the plugin
+msgid "Log all emails sent from WordPress"
+msgstr ""
+
+#. Author of the plugin
+msgid "Move Your Digital, Inc."
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://moveyourdigital.com"
+msgstr ""
+
+#: inc/post-types/email-log.php:15
+msgctxt "name"
+msgid "Email Logs"
+msgstr ""
+
+#: inc/post-types/email-log.php:16
+msgctxt "singular_name"
+msgid "Email Log"
+msgstr ""
+
+#: inc/post-types/email-log.php:18
+msgid "Email Log Attributes"
+msgstr ""
+
+#: inc/post-types/email-log.php:19
+msgid "Filter Email Logs list"
+msgstr ""
+
+#: inc/post-types/email-log.php:20
+msgid "Email Logs list navigation"
+msgstr ""
+
+#: inc/post-types/email-log.php:21
+msgid "Email Logs list"
+msgstr ""
+
+#: inc/post-types/email-log.php:22
+msgid "New Email Log"
+msgstr ""
+
+#: inc/post-types/email-log.php:23
+msgid "Email Log"
+msgstr ""
+
+#: inc/post-types/email-log.php:24
+msgid "View Email Log"
+msgstr ""
+
+#: inc/post-types/email-log.php:25
+msgid "View Email Logs"
+msgstr ""
+
+#: inc/post-types/email-log.php:26
+msgid "Search Email Logs"
+msgstr ""
+
+#: inc/post-types/email-log.php:27
+msgid "No Email Logs found"
+msgstr ""
+
+#: inc/post-types/email-log.php:28
+msgid "No Email Logs found in trash"
+msgstr ""
+
+#: inc/post-types/email-log.php:29
+msgctxt "menu_item"
+msgid "Email Logs"
+msgstr ""
+
+#: inc/post-types/email-log.php:60
+msgctxt "post"
+msgid "Queued"
+msgstr ""
+
+#. translators: number of entries in queued state
+#: inc/post-types/email-log.php:62
+msgid "Queued <span class=count>(%s)</span>"
+msgid_plural "Queued <span class=count>(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/post-types/email-log.php:70
+msgctxt "post"
+msgid "Failed"
+msgstr ""
+
+#. translators: number of entries in failed state
+#: inc/post-types/email-log.php:72
+msgid "Failed <span class=count>(%s)</span>"
+msgid_plural "Failed <span class=count>(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/post-types/email-log.php:80
+msgctxt "post"
+msgid "Sent"
+msgstr ""
+
+#. translators: number of entries in sent state
+#: inc/post-types/email-log.php:82
+msgid "Sent <span class=count>(%s)</span>"
+msgid_plural "Sent <span class=count>(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/post-types/email-log.php:90
+msgctxt "post"
+msgid "Delivered"
+msgstr ""
+
+#. translators: number of entries in delivered state
+#: inc/post-types/email-log.php:92
+msgid "Delivered <span class=count>(%s)</span>"
+msgid_plural "Delivered <span class=count>(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/post-types/email-log.php:100
+msgctxt "post"
+msgid "Bounced"
+msgstr ""
+
+#. translators: number of entries in bounced state
+#: inc/post-types/email-log.php:102
+msgid "Bounced <span class=count>(%s)</span>"
+msgid_plural "Bounced <span class=count>(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/post-types/email-log.php:152
+msgid "View details"
+msgstr ""
+
+#: inc/post-types/email-log.php:153
+msgid "View"
+msgstr ""
+
+#: inc/post-types/email-log.php:199
+msgid "Resend emails"
+msgstr ""
+
+#. translators: number of entries in bounced state
+#: inc/post-types/email-log.php:280
+msgid "Resent %s email."
+msgid_plural "Resent %s emails."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/post-types/email-log.php:334
+#: inc/post-types/email-log.php:434
+msgid "Status"
+msgstr ""
+
+#: inc/post-types/email-log.php:335
+msgid "To Address"
+msgstr ""
+
+#: inc/post-types/email-log.php:336
+#: inc/post-types/email-log.php:433
+msgid "Subject"
+msgstr ""
+
+#: inc/post-types/email-log.php:337
+msgid "Body"
+msgstr ""
+
+#: inc/post-types/email-log.php:338
+msgid "Message ID"
+msgstr ""
+
+#: inc/post-types/email-log.php:348
+msgid "Attachments"
+msgstr ""
+
+#: inc/post-types/email-log.php:370
+msgid "Headers"
+msgstr ""
+
+#: inc/post-types/email-log.php:374
+msgid "Error"
+msgstr ""
+
+#: inc/post-types/email-log.php:432
+msgid "To"
+msgstr ""
