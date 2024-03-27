@@ -64,7 +64,7 @@ add_filter(
 			return $result;
 		}
 
-		$result        = apply_filter( 'plugin_update_remote_data_' . plugin_basename( __DIR__ ), $result );
+		$result        = apply_filters( 'plugin_update_remote_data_' . plugin_basename( __DIR__ ), $result );
 		$result->slug  = plugin_basename( __DIR__ );
 		$result->trunk = $remote->download_url;
 
@@ -84,7 +84,7 @@ add_filter(
 add_action(
 	'init',
 	function () {
-		$basename_file = apply_filters( 'plugin_basename_file_' . plugin_basename( __DIR__ ) );
+		$basename_file = apply_filters( 'plugin_basename_file_' . plugin_basename( __DIR__ ), '' );
 		$update_uri    = get_option( 'plugin_update_uri_' . plugin_basename( __DIR__ ) );
 
 		if ( ! $update_uri ) {
@@ -163,7 +163,7 @@ add_action(
 add_action(
 	'upgrader_process_complete',
 	function ( $upgrader_object, $options ) {
-		$basename_file = apply_filters( 'plugin_basename_file_' . plugin_basename( __DIR__ ) );
+		$basename_file = apply_filters( 'plugin_basename_file_' . plugin_basename( __DIR__ ), '' );
 
 		if ( 'update' === $options['action'] && 'plugin' === $options['type'] ) {
 			foreach ( $options['plugins'] as $each_plugin ) {
