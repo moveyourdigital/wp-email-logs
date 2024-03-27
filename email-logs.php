@@ -3,7 +3,7 @@
  * Plugin Name:     Email Logs
  * Plugin URI:      https://github.com/moveyourdigital/wp-email-logs
  * Description:     Log all emails sent from WordPress
- * Version:         0.3.1
+ * Version:         0.3.7
  * Requires:        PHP: 7.4
  * Author:          Move Your Digital, Inc.
  * Author URI:      https://moveyourdigital.com

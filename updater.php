@@ -10,6 +10,37 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Gets and updates plugin Update URI
+ *
+ * @since 0.3.5
+ */
+add_filter(
+	'plugin_update_uri_' . plugin_basename( __DIR__ ),
+	function ( $delete = false ) {
+		if ( true === $delete ) {
+			delete_option( 'plugin_update_uri_' . plugin_basename( __DIR__ ) );
+		}
+
+		$update_uri = get_option( 'plugin_update_uri_' . plugin_basename( __DIR__ ) );
+
+		if ( ! $update_uri ) {
+			if ( ! function_exists( 'get_plugin_data' ) ) {
+				require_once ABSPATH . 'wp-admin/includes/plugin.php';
+			}
+
+			$basename_file = apply_filters( 'plugin_basename_file_' . plugin_basename( __DIR__ ), '' );
+
+			$plugin_data = get_plugin_data( trailingslashit( WP_PLUGIN_DIR ) . $basename_file );
+			$update_uri  = $plugin_data['UpdateURI'];
+
+			update_option( 'plugin_update_uri_' . plugin_basename( __DIR__ ), $update_uri );
+		}
+
+		return $update_uri;
+	}
+);
+
+/**
  * Fetch and return plugin data from declared remote
  *
  * @since 0.3.2
@@ -20,7 +51,7 @@ add_filter(
 	'plugin_update_remote_data_' . plugin_basename( __DIR__ ),
 	function ( $default_result = '' ) {
 		$remote_data = wp_remote_get(
-			get_option( 'plugin_update_uri_' . plugin_basename( __DIR__ ) ),
+			apply_filters( 'plugin_update_uri_' . plugin_basename( __DIR__ ), null ),
 			array(
 				'timeout' => 10,
 				'headers' => array(
@@ -64,9 +95,17 @@ add_filter(
 			return $result;
 		}
 
-		$result        = apply_filters( 'plugin_update_remote_data_' . plugin_basename( __DIR__ ), $result );
-		$result->slug  = plugin_basename( __DIR__ );
-		$result->trunk = $remote->download_url;
+		$result           = apply_filters( 'plugin_update_remote_data_' . plugin_basename( __DIR__ ), $result );
+		$result->slug     = plugin_basename( __DIR__ );
+		$result->trunk    = $result->download_url;
+		$result->sections = array(
+			'description'  => $result->sections->description,
+			'installation' => $result->sections->installation,
+		);
+		$result->banners  = array(
+			'low'  => $result->banners->low,
+			'high' => $result->banners->high,
+		);
 
 		return $result;
 	},
@@ -84,25 +123,14 @@ add_filter(
 add_action(
 	'init',
 	function () {
-		$basename_file = apply_filters( 'plugin_basename_file_' . plugin_basename( __DIR__ ), '' );
-		$update_uri    = get_option( 'plugin_update_uri_' . plugin_basename( __DIR__ ) );
-
-		if ( ! $update_uri ) {
-			if ( ! function_exists( 'get_plugin_data' ) ) {
-				require_once ABSPATH . 'wp-admin/includes/plugin.php';
-			}
-
-			$plugin_data = get_plugin_data( WP_PLUGIN_DIR . $basename_file );
-			$update_uri  = $plugin_data['UpdateURI'];
-
-			add_option( 'plugin_update_uri_' . plugin_basename( __DIR__ ), $update_uri );
-		}
-
-		$hostname = wp_parse_url( sanitize_url( $update_uri ), PHP_URL_HOST );
+		$update_uri = apply_filters( 'plugin_update_uri_' . plugin_basename( __DIR__ ), null );
+		$hostname   = wp_parse_url( sanitize_url( $update_uri ), PHP_URL_HOST );
 
 		add_filter(
 			'update_plugins_' . $hostname,
 			function ( $update, $plugin_data, $plugin_file ) {
+				$basename_file = apply_filters( 'plugin_basename_file_' . plugin_basename( __DIR__ ), '' );
+
 				if ( $plugin_file !== $basename_file ) {
 					return $update;
 				}
@@ -111,9 +139,21 @@ add_action(
 					return $update;
 				}
 
-				$remote_data = apply_filter( 'plugin_update_remote_data_' . plugin_basename( __DIR__ ), $result );
+				$remote_data = apply_filters( 'plugin_update_remote_data_' . plugin_basename( __DIR__ ), $update );
 
-				if ( ! version_compare( $plugin_data['Version'], $remote_data->version, '<' ) ) {
+				if ( ! $remote_data ) {
+					return $update;
+				}
+
+				if ( version_compare( $remote_data->version, $plugin_data['Version'], '<=' ) ) {
+					return $update;
+				}
+
+				if ( version_compare( get_bloginfo( 'version' ), $remote_data->requires, '<' ) ) {
+					return $update;
+				}
+
+				if ( version_compare( PHP_VERSION, $remote_data->requires_php, '<' ) ) {
 					return $update;
 				}
 
@@ -168,7 +208,7 @@ add_action(
 		if ( 'update' === $options['action'] && 'plugin' === $options['type'] ) {
 			foreach ( $options['plugins'] as $each_plugin ) {
 				if ( $each_plugin === $basename_file ) {
-					delete_option( 'plugin_update_uri_' . plugin_basename( __DIR__ ) );
+					apply_filters( 'plugin_update_uri_' . plugin_basename( __DIR__ ), true );
 				}
 			}
 		}
