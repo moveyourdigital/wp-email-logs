@@ -5,6 +5,10 @@
  * @package email-logs
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Filters whether to preempt sending an email.
  *

@@ -9,7 +9,7 @@
  * Author URI:      https://moveyourdigital.com
  * License:         GPLv2
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
- * Update URI:      email-logs
+ * Update URI:      https://github.com/moveyourdigital/wp-email-logs/raw/main/wp-info.json
  * Text Domain:     email-logs
  * Domain Path:     /languages
  *
@@ -32,6 +32,10 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Load plugin translations and post type
  *
@@ -48,6 +52,19 @@ add_action(
 
 		include __DIR__ . '/inc/post-types/email-log.php';
 		include __DIR__ . '/inc/filters/pre-wp-mail.php';
+		include __DIR__ . '/updater.php';
+	}
+);
+
+/**
+ * Filters this plugin data
+ *
+ * @since 0.3.2
+ */
+add_filter(
+	'plugin_basename_file_' . plugin_basename( __DIR__ ),
+	function () {
+		return plugin_basename( __FILE__ );
 	}
 );
 

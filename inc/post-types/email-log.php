@@ -1,10 +1,19 @@
 <?php
 /**
- * Registers the `email_log` post type.
+ * Registers core plugin functionality
  *
  * @package email-logs
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/**
+ * Registers the `email_log` post type.
+ *
+ * @package email-logs
+ */
 add_action(
 	'init',
 	function () {
