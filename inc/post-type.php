@@ -5,9 +5,7 @@
  * @package email-logs
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+namespace Email_Logs;
 
 /**
  * Registers the `email_log` post type.

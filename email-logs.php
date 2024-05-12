@@ -32,8 +32,88 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+namespace Email_Logs;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
+}
+
+/**
+ * Use any URL path relative to this plugin
+ *
+ * @param string $path the path.
+ * @return string
+ */
+function plugin_uri( $path ) {
+	return plugins_url( $path, __FILE__ );
+}
+
+/**
+ * Use any directory relative to this plugin
+ *
+ * @since 0.3.3
+ * @param string $path the path.
+ * @return string
+ */
+function plugin_dir( $path ) {
+	return plugin_dir_path( __FILE__ ) . $path;
+}
+
+/**
+ * Gets the plugin unique identifier
+ * based on 'plugin_basename' call.
+ *
+ * @since 0.3.3
+ * @return string
+ */
+function plugin_file() {
+	return plugin_basename( __FILE__ );
+}
+
+/**
+ * Gets the plugin version.
+ *
+ * @since 0.3.3
+ * @param bool $revalidate force plugin revalidation.
+ * @return string
+ */
+function plugin_data( $revalidate = false ) {
+	if ( true === $revalidate ) {
+		delete_transient( 'plugin_data_' . plugin_file() );
+	}
+
+	$plugin_data = get_transient( 'plugin_data_' . plugin_file() );
+
+	if ( ! $plugin_data ) {
+		if ( ! function_exists( 'get_plugin_data' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/plugin.php';
+		}
+
+		$plugin_data = get_plugin_data( __FILE__ );
+		$plugin_data = array_intersect_key(
+			$plugin_data,
+			array_flip(
+				array( 'Version', 'UpdateURI' )
+			)
+		);
+
+		set_transient( 'plugin_data' . plugin_file(), $plugin_data );
+	}
+
+	return $plugin_data;
+}
+
+/**
+ * Get plugin version
+ *
+ * @return string|null
+ */
+function plugin_version() {
+	$data = plugin_data();
+
+	if ( isset( $data['Version'] ) ) {
+		return $data['Version'];
+	}
 }
 
 /**
@@ -50,21 +130,9 @@ add_action(
 			dirname( plugin_basename( __FILE__ ) ) . '/languages/'
 		);
 
-		include __DIR__ . '/inc/post-types/email-log.php';
-		include __DIR__ . '/inc/filters/pre-wp-mail.php';
-		include __DIR__ . '/updater.php';
-	}
-);
-
-/**
- * Filters this plugin data
- *
- * @since 0.3.2
- */
-add_filter(
-	'plugin_basename_file_' . plugin_basename( __DIR__ ),
-	function () {
-		return plugin_basename( __FILE__ );
+		include __DIR__ . '/inc/post-type.php';
+		include __DIR__ . '/inc/pre-wp-mail.php';
+		include __DIR__ . '/inc/updater.php';
 	}
 );
 

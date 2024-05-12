@@ -1,17 +1,19 @@
 {
   "name": "Email Logs",
-  "slug": "wp-email-logs",
+  "version": "0.3.7",
   "author": "<a href='https://github.com/moveyourdigital'>Move Your Digital</a>",
   "author_profile": "https://github.com/moveyourdigital",
-  "version": "0.3.7",
-  "download_url": "https://github.com/moveyourdigital/wp-email-logs/archive/refs/heads/main.zip",
+  "homepage": "https://github.com/moveyourdigital/wp-email-logs",
+  "download_link": "https://github.com/moveyourdigital/wp-email-logs/archive/refs/heads/main.zip",
+  "support_url": "https://github.com/moveyourdigital/wp-email-logs/issues",
   "requires": "5.8",
-  "tested": "6.4.3",
+  "tested": "6.5.3",
   "requires_php": "7.4",
   "last_updated": "2024-03-27 22:45:00",
   "sections": {
     "description": "Log all emails sent from WordPress.",
-    "installation": "Click the <i>activate</i> button. No further configuration."
+    "installation": "Click the <i>activate</i> button. No further configuration.",
+    "changelog": "<h4>0.3.7</h4><ol><li>Stable version.</li></ol>"
   },
   "banners": {
     "low": "https://github.com/moveyourdigital/wp-email-logs/raw/main/assets/banner-772x250.jpg",
